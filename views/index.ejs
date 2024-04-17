@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cocktail Recipe Finder</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Cocktail Recipe Finder 🍸</h1>
+      <form action="/recipe" method="POST">
+        <input
+          type="text"
+          id="cocktailInput"
+          name="cocktail"
+          placeholder="Enter cocktail name"
+        />
+        <button type="submit">Search</button>
+      </form>
+ 
+      <div id="cocktailDetails">
+        <% if (locals.cocktailData) { %>
+        <h2 id="cocktailName"><%= cocktailData.strDrink %></h2>
+        <p id="cocktailRecipe"><%= cocktailData.strInstructions %></p>
+        <img
+          id="cocktailImage"
+          src="<%= cocktailData.strDrinkThumb %>"
+          alt="Cocktail Image"
+        />
+        <% } else if (locals.error) { %>
+        <p><%= error %></p>
+        <% } else { %>
+        <p>Enter your Cocktail name🕵.</p>
+        <% } %>
+      </div>
+
+     
+    
+  </body>
+</html>
